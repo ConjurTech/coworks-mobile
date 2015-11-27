@@ -1,6 +1,9 @@
 'use strict';
 
 import React from 'react-native';
+import Media from '../helpers/media';
+import Button from 'apsl-react-native-button';
+
 const {
   StyleSheet,
   Component,
@@ -9,18 +12,34 @@ const {
   TouchableHighlight,
 } = React;
 
-const SCREEN_WIDTH = require('Dimensions').get('window').width;
+const SCREEN_WIDTH = Media.getScreenWidth();
 const styles = StyleSheet.create({
-  signIn: {
-    color: 'white',
-    fontSize: 18,
-    textAlign: 'center',
+  // buttonText: {
+  //   color: 'white',
+  //   fontSize: 18,
+  //   lineHeight: 50,
+  //   textAlign: 'center',
+  // },
+  signInButton: {
+    height: 50,
+    width: SCREEN_WIDTH-80,
+    borderWidth: 0,
+    borderRadius: 100,
+    backgroundColor: '#8cbe5e',
+    marginTop: 20,
   },
-  register: {
-    color: 'white',
-    fontSize: 18,
-    textAlign: 'center',
+  registerButton: {
+    height: 50,
+    width: SCREEN_WIDTH-80,
+    borderWidth: 0,
+    borderRadius: 100,
+    backgroundColor: '#62a0e7',
+    marginBottom: 0
   },
+  buttonText: {
+    color: 'white',
+    fontSize: 18
+  }
 });
 
 export default class LandingPage extends Component {
@@ -47,22 +66,12 @@ export default class LandingPage extends Component {
           </Text>
         </View>
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
-          <View style={{borderRadius: 30, backgroundColor: '#8cbe5e', width: SCREEN_WIDTH-80, height: 50, justifyContent: 'center', marginTop: 20}}>
-            <TouchableHighlight
-              onPress={this.gotoSignIn}>
-              <Text style={styles.signIn}>
-                Sign In
-              </Text>
-            </TouchableHighlight>
-          </View>
-          <View style={{borderRadius: 30, backgroundColor: '#62a0e7', width: SCREEN_WIDTH-80, height: 50, justifyContent: 'center', marginTop: 10}}>
-            <TouchableHighlight
-              onPress={this.gotoRegister}>
-              <Text style={styles.register}>
-                Create Account
-              </Text>
-            </TouchableHighlight>
-          </View>
+          <Button onPress={this.gotoSignIn} style={styles.signInButton} textStyle={styles.buttonText}>
+            Sign In
+          </Button>
+          <Button onPress={this.gotoRegister} style={styles.registerButton} textStyle={styles.buttonText}>
+            Create Account
+          </Button>
           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
             <TouchableHighlight
               onPress={this.gotoHome}>
@@ -76,8 +85,8 @@ export default class LandingPage extends Component {
 
   gotoSignIn() {
     this.props.navigator.push({
-      id: 'MainPage',
-      name: 'MainPage',
+      id: 'SignInPage',
+      name: 'SignInPage',
     });
   }
 

@@ -5,7 +5,11 @@
 'use strict';
 
 import React from 'react-native';
-import LandingPage from './components/LandingPage'
+import LandingPage from './components/LandingPage';
+import SignInPage from './components/user/SignInPage';
+
+// TODO: remove after learning
+// Below are example routes
 import SplashPage from './components/SplashPage';
 import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
@@ -42,6 +46,13 @@ class CoWorksMobile extends React.Component {
     if (routeId === 'LandingPage') {
       return (
         <LandingPage
+          navigator={navigator} />
+      );
+    }
+
+    if (routeId === 'SignInPage') {
+      return (
+        <SignInPage
           navigator={navigator} />
       );
     }
