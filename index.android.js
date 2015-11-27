@@ -27,10 +27,11 @@ var {
 } = React;
 
 class CoWorksMobile extends React.Component {
+  // Change initialRoute to something else for easier debugging.
   render() {
     return (
       <Navigator
-          initialRoute={{id: 'SignInPage', name: 'SignInPage'}}
+          initialRoute={{id: 'LandingPage', name: 'LandingPage'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
             if (route.sceneConfig) {
