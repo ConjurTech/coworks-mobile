@@ -28,6 +28,7 @@ export default class LandingPage extends Component {
     super(props);
     this.gotoSignIn = this.gotoSignIn.bind(this);
     this.gotoRegister = this.gotoRegister.bind(this);
+    this.gotoHome = this.gotoHome.bind(this);
   }
 
   render() {
@@ -62,6 +63,12 @@ export default class LandingPage extends Component {
               </Text>
             </TouchableHighlight>
           </View>
+          <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+            <TouchableHighlight
+              onPress={this.gotoHome}>
+              <Text>Skip now, I'll sign in later</Text>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
     );
@@ -75,6 +82,13 @@ export default class LandingPage extends Component {
   }
 
   gotoRegister() {
+    this.props.navigator.push({
+      id: 'MainPage',
+      name: 'MainPage',
+    });
+  }
+
+  gotoHome() {
     this.props.navigator.push({
       id: 'MainPage',
       name: 'MainPage',
