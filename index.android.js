@@ -30,7 +30,7 @@ class CoWorksMobile extends React.Component {
   render() {
     return (
       <Navigator
-          initialRoute={{id: 'LandingPage', name: 'LandingPage'}}
+          initialRoute={{id: 'SignInPage', name: 'SignInPage'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
             if (route.sceneConfig) {

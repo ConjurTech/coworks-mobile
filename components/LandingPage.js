@@ -14,12 +14,6 @@ const {
 
 const SCREEN_WIDTH = Media.getScreenWidth();
 const styles = StyleSheet.create({
-  // buttonText: {
-  //   color: 'white',
-  //   fontSize: 18,
-  //   lineHeight: 50,
-  //   textAlign: 'center',
-  // },
   signInButton: {
     height: 50,
     width: SCREEN_WIDTH-80,
