@@ -5,6 +5,7 @@
 'use strict';
 
 import React from 'react-native';
+import LandingPage from './components/LandingPage'
 import SplashPage from './components/SplashPage';
 import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
@@ -25,7 +26,7 @@ class CoWorksMobile extends React.Component {
   render() {
     return (
       <Navigator
-          initialRoute={{id: 'SplashPage', name: 'Index'}}
+          initialRoute={{id: 'LandingPage', name: 'LandingPage'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
             if (route.sceneConfig) {
@@ -38,6 +39,13 @@ class CoWorksMobile extends React.Component {
 
   renderScene(route, navigator) {
     var routeId = route.id;
+    if (routeId === 'LandingPage') {
+      return (
+        <LandingPage
+          navigator={navigator} />
+      );
+    }
+
     if (routeId === 'SplashPage') {
       return (
         <SplashPage
@@ -73,35 +81,17 @@ class CoWorksMobile extends React.Component {
   }
 
   noRoute(navigator) {
+    // <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+    //     onPress={() => navigator.pop()}>
+    //   <Text style={{color: 'red', fontWeight: 'bold'}}>Incorrect route</Text>
+    // </TouchableOpacity>
     return (
       <View style={{flex: 1, alignItems: 'stretch', justifyContent: 'center'}}>
-        <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-            onPress={() => navigator.pop()}>
-          <Text style={{color: 'red', fontWeight: 'bold'}}>Incorrect route</Text>
-        </TouchableOpacity>
+        <Text> No Route matching </Text>
       </View>
     );
   }
 
 };
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('CoWorksMobile', () => CoWorksMobile);
