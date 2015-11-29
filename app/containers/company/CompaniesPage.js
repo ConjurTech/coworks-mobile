@@ -11,7 +11,7 @@ const {
   BackAndroid
 } = React;
 
-const mockStore = {}
+const REQUEST_URL = 'http://coworks.conjur.tech/companies';
 
 export default class SignInPage extends Component {
   constructor(props) {
@@ -28,20 +28,15 @@ export default class SignInPage extends Component {
   }
 
   fetchData() {
-    setTimeout(()=>{
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows([
-          {
-            name: '1',
-            logo_url: 'http://test.com'
-          }, {
-            name: '2',
-            logo_url: 'http://test.com'
-          }
-        ]),
-        loaded: true
-      });
-    }, 0);
+    fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData.companies),
+          loaded: true,
+        });
+      })
+      .done();
   }
 
   renderLoadingView() {
@@ -54,12 +49,12 @@ export default class SignInPage extends Component {
     );
   }
 
-  renderRow(object) {
+  renderRow(company) {
     return (
       <CompanyRow
-        name = {object.name}
+        name = {company.name}
         favourite = {true}
-        logo_url = {object.logo_url}
+        logo = {company.logo}
         />
     )
   }
@@ -70,7 +65,7 @@ export default class SignInPage extends Component {
     }
 
     return (
-      <View style={{backgroundColor: 'white', flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
+      <View style={{backgroundColor: '#eee', flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow}
