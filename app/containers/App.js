@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 import React from 'react-native';
@@ -15,15 +11,14 @@ import LoginPage from '../components/LoginPage';
 import MainPage from '../components/MainPage';
 import PersonPage from '../components/PersonPage';
 import NoNavigatorPage from '../components/NoNavigatorPage';
+import CounterPage from '../components/CounterPage';
 
 var {
   AppRegistry,
-  StyleSheet,
   Component,
   Text,
   View,
   Navigator,
-  TouchableOpacity,
 } = React;
 
 export default class App extends React.Component {
@@ -54,6 +49,13 @@ export default class App extends React.Component {
     if (routeId === 'SignInPage') {
       return (
         <SignInPage
+          navigator={navigator} />
+      );
+    }
+
+    if (routeId === 'CounterPage') {
+      return (
+        <CounterPage
           navigator={navigator} />
       );
     }
@@ -93,10 +95,6 @@ export default class App extends React.Component {
   }
 
   noRoute(navigator) {
-    // <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-    //     onPress={() => navigator.pop()}>
-    //   <Text style={{color: 'red', fontWeight: 'bold'}}>Incorrect route</Text>
-    // </TouchableOpacity>
     return (
       <View style={{flex: 1, alignItems: 'stretch', justifyContent: 'center'}}>
         <Text> No Route matching </Text>
