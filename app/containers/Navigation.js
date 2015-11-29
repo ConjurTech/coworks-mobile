@@ -1,14 +1,22 @@
 import React, { Component, View, Text, Navigator, PropTypes } from 'react-native';
 import Router from '../configs/Router';
 import LandingPage from './LandingPage';
+import Counter from '../components/Counter';
 
 export default class CounterPage extends Component {
   constructor(props) {
     super(props);
+    // this.initialRoute = {
+    //   name: 'home',
+    //   index: 0,
+    //   component: LandingPage
+    // }
+
+    // Test Redux
     this.initialRoute = {
-      name: 'home',
+      name: 'counter',
       index: 0,
-      component: LandingPage
+      component: Counter
     }
   }
 

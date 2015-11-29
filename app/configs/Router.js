@@ -1,5 +1,6 @@
-import React from 'react-native';
+import React, { Navigator } from 'react-native';
 import SignInPage from '../containers/user/SignInPage';
+import Counter from '../components/Counter';
 
 class Router {
   constructor(navigator) {
@@ -23,6 +24,14 @@ class Router {
     this.push(props, {
       component: SignInPage,
       name: 'signIn',
+      sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
+    })
+  }
+
+  toCounter(props) {
+    this.push(props, {
+      component: Counter,
+      name: 'counter',
       sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
     })
   }

@@ -78,10 +78,7 @@ export default class LandingPage extends Component {
   }
 
   gotoSignIn() {
-    this.props.navigator.push({
-      id: 'SignInPage',
-      name: 'SignInPage',
-    });
+    this.props.router.toSignIn();
   }
 
   gotoRegister() {

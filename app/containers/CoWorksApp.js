@@ -6,12 +6,12 @@ import * as CounterActions from '../actions/counter';
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    state: state
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
+  return { actions: bindActionCreators(CounterActions, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

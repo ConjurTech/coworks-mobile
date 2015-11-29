@@ -9,7 +9,8 @@ import React, {
 
 class Counter extends Component {
   render() {
-    var { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+    var counter = this.props.state
+    var { increment, incrementIfOdd, incrementAsync, decrement } = this.props.actions;
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Clicked: {counter} times</Text>
