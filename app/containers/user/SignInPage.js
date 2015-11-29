@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import Media from '../../helpers/media';
+import window from '../../util/window';
 
 const {
   StyleSheet,
@@ -11,7 +11,7 @@ const {
   TouchableHighlight,
 } = React;
 
-const SCREEN_WIDTH = Media.getScreenWidth();
+const { width, height } = window.get();
 
 export default class SignInPage extends Component {
   render() {

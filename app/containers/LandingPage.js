@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react-native';
-import Media from '../helpers/media';
+import window from '../util/window';
 import Button from 'apsl-react-native-button';
 
 const {
@@ -12,11 +12,11 @@ const {
   TouchableHighlight,
 } = React;
 
-const SCREEN_WIDTH = Media.getScreenWidth();
+const { width, height } = window.get();
 const styles = StyleSheet.create({
   signInButton: {
     height: 50,
-    width: SCREEN_WIDTH-80,
+    width: width-80,
     borderWidth: 0,
     borderRadius: 100,
     backgroundColor: '#8cbe5e',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   registerButton: {
     height: 50,
-    width: SCREEN_WIDTH-80,
+    width: width-80,
     borderWidth: 0,
     borderRadius: 100,
     backgroundColor: '#62a0e7',
