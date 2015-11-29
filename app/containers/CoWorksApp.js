@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(CounterActions, dispatch) };
+  return { actions: bindActionCreators(Object.assign({}, CounterActions), dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

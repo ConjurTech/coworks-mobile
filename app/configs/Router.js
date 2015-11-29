@@ -45,16 +45,16 @@ class Router {
 
 
 // Change this for debugging
-// const InitialRoute = {
-//   name: 'counter',
-//   index: 0,
-//   component: Counter
-// }
-
 const InitialRoute = {
-  name: 'home',
+  name: 'counter',
   index: 0,
-  component: LandingPage
+  component: Counter
 }
+
+// const InitialRoute = {
+//   name: 'home',
+//   index: 0,
+//   component: LandingPage
+// }
 
 module.exports = { Router, InitialRoute }
