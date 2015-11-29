@@ -9,6 +9,7 @@ const {
   View,
   Text,
   TouchableHighlight,
+  BackAndroid
 } = React;
 
 const { width, height } = window.get();

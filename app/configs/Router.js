@@ -1,4 +1,4 @@
-import React, { Navigator } from 'react-native';
+import React, { Navigator, Platform, BackAndroid } from 'react-native';
 import SignInPage from '../containers/user/SignInPage';
 import LandingPage from '../containers/LandingPage';
 import Counter from '../containers/counterExample/Counter';
@@ -6,6 +6,15 @@ import Counter from '../containers/counterExample/Counter';
 class Router {
   constructor(navigator) {
     this.navigator = navigator;
+    if (Platform.OS === 'android') {
+      BackAndroid.addEventListener('hardwareBackPress', () => {
+        if (this.navigator.getCurrentRoutes().length > 1) {
+          this.pop();
+          return true;
+        }
+        return false;
+      });
+    }
   }
 
   push(props, route) {
@@ -45,16 +54,16 @@ class Router {
 
 
 // Change this for debugging
-const InitialRoute = {
-  name: 'counter',
-  index: 0,
-  component: Counter
-}
-
 // const InitialRoute = {
-//   name: 'home',
+//   name: 'counter',
 //   index: 0,
-//   component: LandingPage
+//   component: Counter
 // }
+
+const InitialRoute = {
+  name: 'home',
+  index: 0,
+  component: LandingPage
+}
 
 module.exports = { Router, InitialRoute }
