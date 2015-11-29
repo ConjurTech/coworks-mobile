@@ -11,7 +11,7 @@ import LoginPage from '../components/LoginPage';
 import MainPage from '../components/MainPage';
 import PersonPage from '../components/PersonPage';
 import NoNavigatorPage from '../components/NoNavigatorPage';
-import CounterPage from '../components/CounterPage';
+import CounterPage from './CounterPage';
 
 var {
   AppRegistry,
@@ -26,7 +26,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Navigator
-          initialRoute={{id: 'LandingPage', name: 'LandingPage'}}
+          initialRoute={{id: 'CounterPage', name: 'CounterPage'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
             if (route.sceneConfig) {

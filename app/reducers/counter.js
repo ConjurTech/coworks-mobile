@@ -1,9 +1,6 @@
-const types = require('../constants/ActionTypes');
-const { INCREMENT_COUNTER, DECREMENT_COUNTER } = require('../constants/ActionTypes');
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
 
-let initialState = 0;
-exports = function counter(state, action) {
-  state = state || initialState;
+export default function counter(state = 0, action) {
   switch (action.type) {
   case INCREMENT_COUNTER:
     return state + 1;
@@ -12,4 +9,4 @@ exports = function counter(state, action) {
   default:
     return state;
   }
-}
+};
