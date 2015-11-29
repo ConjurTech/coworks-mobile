@@ -1,6 +1,7 @@
 import React, { Navigator } from 'react-native';
 import SignInPage from '../containers/user/SignInPage';
-import Counter from '../components/Counter';
+import LandingPage from '../containers/LandingPage';
+import Counter from '../containers/counterExample/Counter';
 
 class Router {
   constructor(navigator) {
@@ -42,4 +43,18 @@ class Router {
 
 }
 
-module.exports = Router
+
+// Change this for debugging
+const InitialRoute = {
+  name: 'counter',
+  index: 0,
+  component: Counter
+}
+
+// const InitialRoute = {
+//   name: 'home',
+//   index: 0,
+//   component: LandingPage
+// }
+
+module.exports = { Router, InitialRoute }
