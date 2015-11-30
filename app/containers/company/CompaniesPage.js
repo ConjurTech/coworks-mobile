@@ -1,7 +1,7 @@
 import React from 'react-native';
 import CompanyRow from '../../components/company/CompanyRow';
 import Request from '../../services/Request';
-import { urls } from '../../configs/Strings';
+import { urls } from '../../configs/environment';
 
 const {
   StyleSheet,
