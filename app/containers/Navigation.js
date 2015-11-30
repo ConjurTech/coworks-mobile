@@ -12,7 +12,7 @@ export default class CounterPage extends Component {
   renderScene(route, navigator) {
     this.router = this.router || new Router(navigator)
     if (route.component) {
-      return React.createElement(route.component, Object.assign({}, route.props));
+      return React.createElement(route.component, Object.assign({}, route.props, {router: this.router}));
     }
   }
 

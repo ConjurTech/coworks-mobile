@@ -65,16 +65,16 @@ class Router {
 //   component: Counter
 // }
 
-// const InitialRoute = {
-//   name: 'landing',
-//   index: 0,
-//   component: LandingPage
-// }
-
 const InitialRoute = {
-  name: 'companies',
+  name: 'landing',
   index: 0,
-  component: CompaniesPage
+  component: LandingPage
 }
+
+// const InitialRoute = {
+//   name: 'companies',
+//   index: 0,
+//   component: CompaniesPage
+// }
 
 module.exports = { Router, InitialRoute }
