@@ -1,5 +1,6 @@
 import React from 'react-native';
-import CompanyRow from '../../components/company/CompanyRow.js';
+import CompanyRow from '../../components/company/CompanyRow';
+import Request from '../../services/Request'
 
 const {
   StyleSheet,
@@ -28,15 +29,14 @@ export default class SignInPage extends Component {
   }
 
   fetchData() {
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.companies),
-          loaded: true,
-        });
-      })
-      .done();
+    Request.get(REQUEST_URL)
+    .then((responseData) => {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(responseData.companies),
+        loaded: true,
+      });
+    })
+    .done();
   }
 
   renderLoadingView() {

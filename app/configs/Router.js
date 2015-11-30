@@ -59,11 +59,11 @@ class Router {
 
 
 // Change this for debugging
-const InitialRoute = {
-  name: 'counter',
-  index: 0,
-  component: Counter
-}
+// const InitialRoute = {
+//   name: 'counter',
+//   index: 0,
+//   component: Counter
+// }
 
 // const InitialRoute = {
 //   name: 'landing',
@@ -71,10 +71,10 @@ const InitialRoute = {
 //   component: LandingPage
 // }
 
-// const InitialRoute = {
-//   name: 'companies',
-//   index: 0,
-//   component: CompaniesPage
-// }
+const InitialRoute = {
+  name: 'companies',
+  index: 0,
+  component: CompaniesPage
+}
 
 module.exports = { Router, InitialRoute }
