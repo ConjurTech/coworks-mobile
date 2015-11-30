@@ -2,7 +2,7 @@ import React from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux/native';
 import Navigation from './Navigation';
-import * as CounterActions from '../actions/counter';
+import CoWorksActions from '../actions/index';
 
 function mapStateToProps(state) {
   return {
@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(Object.assign({}, CounterActions), dispatch) };
+  return { actions: bindActionCreators(CoWorksActions, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
