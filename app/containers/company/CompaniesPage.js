@@ -1,7 +1,6 @@
 import React from 'react-native';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux/native';
-import CoWorksActions from '../../actions/index';
+import { mapDispatchToProps } from '../../util/Connectors';
 import CompanyRow from '../../components/company/CompanyRow';
 import Request from '../../services/Request';
 import { urls } from '../../configs/environment';
@@ -75,10 +74,6 @@ mapStateToProps = ({companies}) => {
     loaded: companies.loaded
   } };
   return {state};
-}
-
-mapDispatchToProps = (dispatch) => {
-  return { actions: bindActionCreators(CoWorksActions, dispatch) };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesPage);
