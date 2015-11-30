@@ -8,7 +8,7 @@ export default function companies(state = initialState, action) {
     state = state.set('loaded', true);
     state = state.set('companies', state.get('companies').mergeDeep(action.companies));
     return (state);
-  default:
+  default: 
     return state;
   }
 };

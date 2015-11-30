@@ -9,7 +9,7 @@
 - `brew install watchman`. We recommend installing [watchman](https://facebook.github.io/watchman/docs/install.html), otherwise you might hit a node file watching bug.
 - `brew install flow`, if you want to use [flow](http://flowtype.org/).
 - `npm install -g react-native-cli`
-  - `npm react-native-cli -v`: > v2.14.13
+- `npm react-native-cli -v`: > v2.14.13
 
 
 We recommend periodically running `brew update && brew upgrade` to keep your programs up-to-date.

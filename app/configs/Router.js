@@ -1,12 +1,12 @@
 import React, { Navigator, Platform, BackAndroid } from 'react-native';
-import SignInPage from '../containers/user/SignInPage';
+import SignInPage from '../containers/SignInPage';
 import LandingPage from '../containers/LandingPage';
-import CompaniesPage from '../containers/company/CompaniesPage';
+import CompaniesPage from '../containers/CompaniesPage';
 
 
 // Counter is an example.
 // ToDo: Remove after learning basics.
-import Counter from '../containers/counterExample/Counter';
+import Counter from '../containers/Counter';
 
 class Router {
   constructor(navigator) {
@@ -65,16 +65,16 @@ class Router {
 //   component: Counter
 // }
 
-// const InitialRoute = {
-//   name: 'landing',
-//   index: 0,
-//   component: LandingPage
-// }
-
 const InitialRoute = {
-  name: 'companies',
+  name: 'landing',
   index: 0,
-  component: CompaniesPage
+  component: LandingPage
 }
+
+// const InitialRoute = {
+//   name: 'companies',
+//   index: 0,
+//   component: CompaniesPage
+// }
 
 module.exports = { Router, InitialRoute }
