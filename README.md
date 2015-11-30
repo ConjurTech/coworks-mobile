@@ -26,10 +26,17 @@ You are assumed to have worked on [React-Native](https://facebook.github.io/reac
 
 ## Some Help
 
-### Websites
+### Getting started Websites
 - [React-Native Getting Started](https://facebook.github.io/react-native/docs/getting-started.html#content)
+- [Immutable.js](http://facebook.github.io/immutable-js/docs/#/)
+- [Redux](http://redux.js.org/)
+
+### Components to steal
 - [React Parts](https://react.parts/native)
 - [Curated RN components](https://github.com/jondot/awesome-react-native)
+
+### Example Apps using Redux
+- [noder-react-native](https://github.com/soliury/noder-react-native)
 
 
 To debug android app    
