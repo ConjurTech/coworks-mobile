@@ -51,7 +51,9 @@ class CompaniesPage extends Component {
     const hasLoaded = this.props.loaded;
 
     if (hasLoaded) {
-      this.dataSource = this.dataSource.cloneWithRows(companies);
+      // This dataSource still doesn't know which copy is dirty or not right?
+      // Need to find a way to inject individual elements not companies.toJS()
+      this.dataSource = this.dataSource.cloneWithRows(companies.toJS());
     } else {
       return this.renderLoadingView();
     }
@@ -69,8 +71,8 @@ class CompaniesPage extends Component {
 
 mapStateToProps = ({companies}) => {
   return {
-    companies: companies.companies,
-    loaded: companies.loaded
+    companies: companies.get('companies'),
+    loaded: companies.get('loaded')
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesPage);
