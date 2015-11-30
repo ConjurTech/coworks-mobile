@@ -1,4 +1,7 @@
 import React from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux/native';
+import CoWorksActions from '../../actions/index';
 import CompanyRow from '../../components/company/CompanyRow';
 import Request from '../../services/Request';
 import { urls } from '../../configs/environment';
@@ -13,7 +16,7 @@ const {
   BackAndroid
 } = React;
 
-export default class SignInPage extends Component {
+class CompaniesPage extends Component {
   constructor(props) {
     super(props);
     this.dataSource = new ListView.DataSource({
@@ -47,10 +50,10 @@ export default class SignInPage extends Component {
 
   render() {
     const companies = this.props.state.companies;
-    const hasLoaded = companies.loaded;
+    const hasLoaded = this.props.state.loaded;
 
     if (hasLoaded) {
-      this.dataSource = this.dataSource.cloneWithRows(companies.companies);
+      this.dataSource = this.dataSource.cloneWithRows(companies);
     } else {
       return this.renderLoadingView();
     }
@@ -65,3 +68,17 @@ export default class SignInPage extends Component {
     )
   }
 }
+
+mapStateToProps = ({companies}) => {
+  return { state: {
+    companies: companies.companies,
+    loaded: companies.loaded
+  } };
+  return {state};
+}
+
+mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(CoWorksActions, dispatch) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompaniesPage);
