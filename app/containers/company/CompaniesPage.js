@@ -16,26 +16,13 @@ const {
 export default class SignInPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.state.dataSource = new ListView.DataSource({
+    this.dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2
     });
-    this.state.loaded = false;
   }
 
   componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    Request.get(urls.GET_COMPANIES)
-    .then((responseData) => {
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData.companies),
-        loaded: true,
-      });
-    })
-    .done();
+    this.props.actions.getAllCompanies();
   }
 
   renderLoadingView() {
@@ -59,14 +46,19 @@ export default class SignInPage extends Component {
   }
 
   render() {
-    if (!this.state.loaded) {
+    const companies = this.props.state.companies;
+    const hasLoaded = companies.loaded;
+
+    if (hasLoaded) {
+      this.dataSource = this.dataSource.cloneWithRows(companies.companies);
+    } else {
       return this.renderLoadingView();
     }
 
     return (
       <View style={{backgroundColor: '#eee', flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
         <ListView
-          dataSource={this.state.dataSource}
+          dataSource={this.dataSource}
           renderRow={this.renderRow}
           />
       </View>
