@@ -1,4 +1,4 @@
-import * as counter from './counter';
+import counter from './counter';
 
 let actions = {};
 Object.assign(actions, counter);

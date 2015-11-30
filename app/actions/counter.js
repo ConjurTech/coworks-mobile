@@ -1,18 +1,18 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
 
-export function increment() {
+increment = () => {
   return {
     type: INCREMENT_COUNTER
   };
-};
+}
 
-export function decrement() {
+decrement = () => {
   return {
     type: DECREMENT_COUNTER
   };
-};
+}
 
-export function incrementIfOdd() {
+incrementIfOdd = () => {
   return (dispatch, getState) => {
     var { counter } = getState();
 
@@ -22,13 +22,15 @@ export function incrementIfOdd() {
 
     dispatch(increment());
   };
-};
+}
 
-export function incrementAsync(delay) {
+incrementAsync = (delay) => {
   delay = delay || 1000;
   return dispatch => {
     setTimeout(() => {
       dispatch(increment());
     }, delay);
   };
-};
+}
+
+module.exports = { increment, decrement, incrementIfOdd, incrementAsync };
