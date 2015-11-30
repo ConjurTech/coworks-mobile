@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react-native';
 import window from '../util/window';
 import Button from 'apsl-react-native-button';
