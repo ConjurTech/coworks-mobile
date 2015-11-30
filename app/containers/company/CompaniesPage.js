@@ -1,6 +1,7 @@
 import React from 'react-native';
 import CompanyRow from '../../components/company/CompanyRow';
-import Request from '../../services/Request'
+import Request from '../../services/Request';
+import { urls } from '../../configs/Strings';
 
 const {
   StyleSheet,
@@ -11,8 +12,6 @@ const {
   TouchableHighlight,
   BackAndroid
 } = React;
-
-const REQUEST_URL = 'http://coworks.conjur.tech/companies';
 
 export default class SignInPage extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ export default class SignInPage extends Component {
   }
 
   fetchData() {
-    Request.get(REQUEST_URL)
+    Request.get(urls.GET_COMPANIES)
     .then((responseData) => {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(responseData.companies),
