@@ -5,6 +5,8 @@ export default class CounterPage extends Component {
   constructor(props) {
     super(props);
     this.initialRoute = InitialRoute;
+    this.configureScene = this.configureScene.bind(this);
+    this.renderScene = this.renderScene.bind(this);
   }
 
   renderScene(route, navigator) {
@@ -25,8 +27,8 @@ export default class CounterPage extends Component {
     return (
       <Navigator
         initialRoute={this.initialRoute}
-        configureScene={this.configureScene.bind(this)}
-        renderScene={this.renderScene.bind(this)}
+        configureScene={this.configureScene}
+        renderScene={this.renderScene}
         />
     )
   }

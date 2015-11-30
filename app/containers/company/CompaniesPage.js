@@ -1,6 +1,5 @@
 import React from 'react-native';
-import { connect } from 'react-redux/native';
-import { mapDispatchToProps } from '../../util/Connectors';
+import { mapDispatchToProps, connect } from '../../util/Connectors';
 import CompanyRow from '../../components/company/CompanyRow';
 import Request from '../../services/Request';
 import { urls } from '../../configs/environment';
@@ -48,8 +47,8 @@ class CompaniesPage extends Component {
   }
 
   render() {
-    const companies = this.props.state.companies;
-    const hasLoaded = this.props.state.loaded;
+    const companies = this.props.companies;
+    const hasLoaded = this.props.loaded;
 
     if (hasLoaded) {
       this.dataSource = this.dataSource.cloneWithRows(companies);
@@ -69,11 +68,9 @@ class CompaniesPage extends Component {
 }
 
 mapStateToProps = ({companies}) => {
-  return { state: {
+  return {
     companies: companies.companies,
     loaded: companies.loaded
-  } };
-  return {state};
+  }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(CompaniesPage);
