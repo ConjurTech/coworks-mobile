@@ -74,9 +74,9 @@ class Router {
 const InitialRoute = {
   name: 'doesntmatterfornowchangethislater',
   index: 0,
-  // component: LandingPage
+  component: LandingPage
   // component: CompaniesPage
-  component: ProjectsCompaniesPage
+  // component: ProjectsCompaniesPage
 }
 
 module.exports = { Router, InitialRoute }

@@ -67,8 +67,5 @@ function checkStatus(response) {
 }
 
 function parseJSON(response) {
-  return {
-    headers: response.headers,
-    data: response.json()
-  }
+  return response.json()
 }
