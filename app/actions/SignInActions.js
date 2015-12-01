@@ -12,7 +12,7 @@ signIn = () => {
     .then(({data, headers}) => {
       dispatch({
         type: SIGN_IN_SUCCESS,
-        currentUser: data,
+        currentUser: data.data, // this is as the auth library nests the signed in userdata in a 'data' key
         headers: headers
       })
     })

@@ -15,7 +15,21 @@ let initialState = Immutable.fromJS(
 export default function currentUser(state = initialState, action) {
   switch (action.type) {
     case SIGN_IN_SUCCESS:
-    return state.set(action.currentUser).merge({authHeaders: action.headers});
+
+    let mutableState = action.currentUser
+
+    // Select only auth related headers
+    mutableState.authHeaders = {
+      'access-token': action.headers.get('access-token'),
+      'client': action.headers.get('client'),
+      'uid': action.headers.get('uid'),
+      'expiry': action.headers.get('expiry'),
+    }
+    
+    // Rebuild whole state as everything should be changed
+    state = Immutable.fromJS(mutableState)
+    return state;
+
     default:
     return state;
   }

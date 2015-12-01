@@ -51,21 +51,18 @@ function checkStatus(response) {
   } else {
     var error = new Error(response.status)
 
-    // Try to parse the errors array
-    try {
-      let body = JSON.parse(response._bodyText);
+    return response.json()
+    .then((body) => {
       error.errors = body.errors || [body.error]
-    } catch (e) {
+    }).catch((err) => {
       error.errors = ['An unknown error occured']
-    }
-
-    // Attach the raw response
-    error.response = response
-
-    throw error
+    }).finally(() => {
+      error.rawResponse = response
+      throw error
+    })
   }
 }
 
 function parseJSON(response) {
-  return response.json()
+  return response.json().then((data) => ({ headers: response.headers, data }))
 }
