@@ -1,4 +1,5 @@
 import React from 'react-native';
+import ProgressBar from 'ProgressBarAndroid';
 import { mapDispatchToProps, connect } from '../Connector';
 import CompanyRow from '../components/CompanyRow';
 import Request from '../Request';
@@ -28,10 +29,8 @@ class CompaniesPage extends Component {
 
   renderLoadingView() {
     return (
-      <View>
-        <Text>
-          Loading......
-        </Text>
+      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+        <ProgressBar styleAttr="Large" color="black" />
       </View>
     );
   }

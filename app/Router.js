@@ -66,10 +66,15 @@ class Router {
 
 }
 
+
+// Change this for easier debugging
+// Don't remove my companies
+// I don't want to touch my phone to look at my change.
 const InitialRoute = {
-  name: 'landing',
+  name: 'doesntmatterfornowchangethislater',
   index: 0,
-  component: LandingPage
+  // component: LandingPage
+  component: CompaniesPage
 }
 
 module.exports = { Router, InitialRoute }
