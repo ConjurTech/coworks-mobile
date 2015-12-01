@@ -9,16 +9,17 @@ signIn = () => {
     dispatch({ type: SIGNING_IN });
 
     return Request.post(urls.SIGN_IN, getState().signIn.get("details"))
-    .then((results) => {
+    .then(({data, headers}) => {
       dispatch({
         type: SIGN_IN_SUCCESS,
-        currentUser: results.user
+        currentUser: data,
+        headers: headers
       })
     })
-    .catch((response) => {
+    .catch((err) => {
       dispatch({
         type: SIGN_IN_FAILURE,
-        errorMessage: response.errors.join('. ')
+        errorMessage: err.errors.join('. ')
       })
     })
     .done();
