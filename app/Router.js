@@ -33,8 +33,7 @@ class Router {
     this.navigator.pop();
   }
 
-
-  toSignIn(props) {
+  slideToSignIn(props) {
     this.push(props, {
       component: SignInPage,
       name: 'signIn',
@@ -42,12 +41,23 @@ class Router {
     })
   }
 
-  toCounter(props) {
+  slideToCounter(props) {
     this.push(props, {
       component: Counter,
       name: 'counter',
       sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
     })
+  }
+
+  replaceWithHome(props) {
+    let homeRoute = {
+      index: 0,
+      props: props,
+      component: CompaniesPage,
+      name: 'companies',
+      sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
+    }
+    this.navigator.immediatelyResetRouteStack([homeRoute])
   }
 
   replaceWithLandingPage() {
@@ -56,24 +66,10 @@ class Router {
 
 }
 
-
-// Change this for debugging
-// const InitialRoute = {
-//   name: 'counter',
-//   index: 0,
-//   component: Counter
-// }
-
 const InitialRoute = {
   name: 'landing',
   index: 0,
   component: LandingPage
 }
-
-// const InitialRoute = {
-//   name: 'companies',
-//   index: 0,
-//   component: CompaniesPage
-// }
 
 module.exports = { Router, InitialRoute }

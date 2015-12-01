@@ -35,13 +35,6 @@ const styles = StyleSheet.create({
 });
 
 export default class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.gotoSignIn = this.gotoSignIn.bind(this);
-    this.gotoRegister = this.gotoRegister.bind(this);
-    this.gotoHome = this.gotoHome.bind(this);
-  }
-
   render() {
     var navigator = this.props.navigator;
     return (
@@ -58,38 +51,20 @@ export default class LandingPage extends Component {
           </Text>
         </View>
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
-          <Button onPress={this.gotoSignIn} style={styles.signInButton} textStyle={styles.buttonText}>
+          <Button onPress={() => this.props.router.slideToSignIn()} style={styles.signInButton} textStyle={styles.buttonText}>
             Sign In
           </Button>
-          <Button onPress={this.gotoRegister} style={styles.registerButton} textStyle={styles.buttonText}>
+          <Button onPress={() => this.props.router.slideToSignIn()} style={styles.registerButton} textStyle={styles.buttonText}>
             Create Account
           </Button>
           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
             <TouchableHighlight
-              onPress={this.gotoHome}>
+              onPress={() => this.props.router.replaceWithHome()}>
               <Text>Skip now, I'll sign in later</Text>
             </TouchableHighlight>
           </View>
         </View>
       </View>
     );
-  }
-
-  gotoSignIn() {
-    this.props.router.toSignIn();
-  }
-
-  gotoRegister() {
-    this.props.navigator.push({
-      id: 'MainPage',
-      name: 'MainPage',
-    });
-  }
-
-  gotoHome() {
-    this.props.navigator.push({
-      id: 'CompaniesPage',
-      name: 'CompaniesPage',
-    });
   }
 }
