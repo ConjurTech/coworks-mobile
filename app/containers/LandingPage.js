@@ -10,7 +10,7 @@ const {
   TouchableHighlight,
 } = React;
 
-const { width, height } = window.get();
+const { width, height } = window.getDimensions();
 const styles = StyleSheet.create({
   signInButton: {
     height: 50,
@@ -88,8 +88,8 @@ export default class LandingPage extends Component {
 
   gotoHome() {
     this.props.navigator.push({
-      id: 'MainPage',
-      name: 'MainPage',
+      id: 'CompaniesPage',
+      name: 'CompaniesPage',
     });
   }
 }

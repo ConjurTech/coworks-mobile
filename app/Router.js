@@ -1,12 +1,11 @@
 import React, { Navigator, Platform, BackAndroid } from 'react-native';
-import SignInPage from '../containers/SignInPage';
-import LandingPage from '../containers/LandingPage';
-import CompaniesPage from '../containers/CompaniesPage';
-
+import SignInPage from './containers/SignInPage';
+import LandingPage from './containers/LandingPage';
+import CompaniesPage from './containers/CompaniesPage';
 
 // Counter is an example.
-// ToDo: Remove after learning basics.
-import Counter from '../containers/Counter';
+// TODO: Remove after learning basics.
+import Counter from './containers/Counter';
 
 class Router {
   constructor(navigator) {

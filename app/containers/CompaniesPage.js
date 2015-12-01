@@ -1,8 +1,8 @@
 import React from 'react-native';
-import { mapDispatchToProps, connect } from '../util/Connectors';
+import { mapDispatchToProps, connect } from '../Connector';
 import CompanyRow from '../components/CompanyRow';
-import Request from '../services/Request';
-import { urls } from '../configs/environment';
+import Request from '../Request';
+import { urls } from '../config/environment';
 
 const {
   StyleSheet,

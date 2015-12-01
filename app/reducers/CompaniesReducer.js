@@ -1,4 +1,4 @@
-import { GET_COMPANIES } from '../constants/ActionTypes';
+import { GET_COMPANIES } from '../actions/CompaniesActions';
 import Immutable from 'immutable';
 
 let initialState = Immutable.fromJS({loaded: false, companies:[]});
@@ -8,7 +8,7 @@ export default function companies(state = initialState, action) {
     state = state.set('loaded', true);
     state = state.set('companies', state.get('companies').mergeDeep(action.companies));
     return (state);
-  default: 
+  default:
     return state;
   }
 };

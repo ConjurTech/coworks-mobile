@@ -1,7 +1,7 @@
 import React, { Component, View, Text, Navigator, PropTypes } from 'react-native';
-import { Router, InitialRoute } from '../configs/Router';
+import { Router, InitialRoute } from '../Router';
 
-export default class CounterPage extends Component {
+export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this.initialRoute = InitialRoute;
@@ -12,7 +12,7 @@ export default class CounterPage extends Component {
   renderScene(route, navigator) {
     this.router = this.router || new Router(navigator)
     if (route.component) {
-      return React.createElement(route.component, Object.assign({}, route.props, {router: this.router}));
+      return React.createElement(route.component, Object.assign({}, route.props, {router: this.router, navigator: navigator}));
     }
   }
 

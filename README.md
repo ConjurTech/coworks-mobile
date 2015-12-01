@@ -4,8 +4,8 @@
 - [Android Environment](https://facebook.github.io/react-native/docs/android-setup.html#content)
 - [Homebrew](http://brew.sh/) is the recommended way to install Watchman and Flow.
 - Node v5.1.
-  - Use [nvm](https://github.com/creationix/nvm#installation).
-  - If you are using Node 5.0 or newer, we recommend installing npm 2, which is much faster than npm 3. After installing Node, run `npm install -g npm@2`.
+- Use [nvm](https://github.com/creationix/nvm#installation).
+- If you are using Node 5.0 or newer, we recommend installing npm 2, which is much faster than npm 3. After installing Node, run `npm install -g npm@2`.
 - `brew install watchman`. We recommend installing [watchman](https://facebook.github.io/watchman/docs/install.html), otherwise you might hit a node file watching bug.
 - `brew install flow`, if you want to use [flow](http://flowtype.org/).
 - `npm install -g react-native-cli`
@@ -39,19 +39,19 @@ You are assumed to have worked on [React-Native](https://facebook.github.io/reac
 - [noder-react-native](https://github.com/soliury/noder-react-native)
 
 
-To debug android app    
-`react-native run-android`
+To start development server:
+`react-native start`              # starts the node server
+`adb reverse tcp:8081 tcp:8081`   # bind the node port to the android device
+`react-native run-android`        # install the app and run it
 
-To start development server    
-`react-native start`    
-`adb reverse tcp:8081 tcp:8081`
-
-Find PID running on port 8081 + kill    
-`lsof -i tcp:8081`    
+If the port binding step does not work, kill existing processes first:
+`lsof -i tcp:8081`
 `kill -9 [PID]`
 
-Run android log    
-`adb logcat *:S ReactNative:V ReactNativeJS:V`
+To run application again a local backend server (e.g. on port 3000):
+`adb reverse tcp:3000 tcp:3000`
+Make sure the server is bound to listen to all IPs, e.g:
+`rails s -b 0.0.0.0`
 
-Get local IP    
-`ifconfig | grep inet`
+To see console logs:
+`adb logcat *:S ReactNative:V ReactNativeJS:V`

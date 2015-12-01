@@ -1,6 +1,6 @@
-import CoWorksActions from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux/native';
+import CoWorksActions from './actions/index';
 
 exports.connect = connect;
 

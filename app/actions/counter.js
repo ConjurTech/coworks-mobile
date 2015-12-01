@@ -1,11 +1,11 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
-
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 increment = () => {
   return {
     type: INCREMENT_COUNTER
   };
 }
 
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 decrement = () => {
   return {
     type: DECREMENT_COUNTER
@@ -33,4 +33,4 @@ incrementAsync = (delay) => {
   };
 }
 
-module.exports = { increment, decrement, incrementIfOdd, incrementAsync };
+export default { increment, decrement, incrementIfOdd, incrementAsync };

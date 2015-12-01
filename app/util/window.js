@@ -1,5 +1,5 @@
 import Dimensions from 'Dimensions';
 
-module.exports.get = () => {
+module.exports.getDimensions = () => {
     return Dimensions.get('window')
 }

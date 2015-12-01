@@ -1,7 +1,7 @@
-import { GET_COMPANIES } from '../constants/ActionTypes';
-import Request from '../services/Request';
-import { urls } from '../configs/environment';
+import Request from '../Request';
+import { urls } from '../config/environment';
 
+export const GET_COMPANIES = 'GET_COMPANIES'
 getAllCompanies = () => {
   return dispatch => Request.get(urls.GET_COMPANIES)
   .then(({results}) => {
@@ -16,4 +16,4 @@ getAllCompanies = () => {
   .done();
 }
 
-module.exports = { getAllCompanies };
+export default { getAllCompanies };

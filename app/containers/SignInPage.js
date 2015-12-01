@@ -1,7 +1,6 @@
 import React from 'react-native';
 import Button from 'apsl-react-native-button';
-import window from '../util/window';
-import { mapDispatchToProps, connect } from '../util/Connectors';
+import { mapDispatchToProps, connect } from '../Connector';
 
 const {
   StyleSheet,
@@ -14,11 +13,9 @@ const {
 } = React;
 
 class SignInPage extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
-    const username = this.props.state.getIn(['details', 'username']);
+    const state = this.props.state.toJS();
+    const email = this.props.state.getIn(['details', 'email']);
     const password = this.props.state.getIn(['details', 'password']);
     const { signIn, updateSignInDetails } = this.props.actions;
 
@@ -37,12 +34,18 @@ class SignInPage extends Component {
             </Text>
           </View>
         </View>
+        {
+          state.isFailure &&
+          <Text style={{fontSize: 14, textAlign: 'center'}}>
+            {state.errorMessage}
+          </Text>
+        }
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
           <TextInput
             keyboardType="email-address"
             style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={(text) => updateSignInDetails({ username: text })}
-            value={username}
+            onChangeText={(text) => updateSignInDetails({ email: text })}
+            value={email}
             />
           <TextInput
             secureTextEntry={true}
@@ -50,7 +53,7 @@ class SignInPage extends Component {
             onChangeText={(text) => updateSignInDetails({ password: text })}
             value={password}
             />
-          <Button onPress={signIn}>
+          <Button onPressOut={signIn}>
             OK
           </Button>
         </View>
