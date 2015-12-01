@@ -2,6 +2,7 @@ import React, { Navigator, Platform, BackAndroid } from 'react-native';
 import SignInPage from './containers/SignInPage';
 import LandingPage from './containers/LandingPage';
 import CompaniesPage from './containers/CompaniesPage';
+import ProjectsCompaniesPage from './containers/ProjectsCompaniesPage';
 
 // Counter is an example.
 // TODO: Remove after learning basics.
@@ -74,7 +75,8 @@ const InitialRoute = {
   name: 'doesntmatterfornowchangethislater',
   index: 0,
   // component: LandingPage
-  component: CompaniesPage
+  // component: CompaniesPage
+  component: ProjectsCompaniesPage
 }
 
 module.exports = { Router, InitialRoute }

@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginLeft: 10,
     marginRight: 10,
-    marginBottom: 5
+    marginBottom: 5,
+    borderRightWidth: 1.5,
+    borderBottomWidth: 1.2,
+    backgroundColor: '#fff',
+    borderColor: 'rgba(3,3,3,0.2)',
   },
   container: {
     flex: 1,

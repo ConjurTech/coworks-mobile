@@ -58,7 +58,7 @@ class CompaniesPage extends Component {
     }
 
     return (
-      <View style={{backgroundColor: '#eee', flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
+      <View style={{backgroundColor: '#f1f2f6', flex: 1, flexDirection: 'column', alignItems: 'stretch'}}>
         <ListView
           dataSource={this.dataSource}
           renderRow={this.renderRow}
