@@ -14,7 +14,7 @@ switch (ENV.env) {
   case 'production': break;
   case 'staging': break;
   case 'development':
-  ENV.urls.BASE_ENDPOINT = 'http://localhost:3000'
+  ENV.urls.BASE_ENDPOINT = 'http://lvh.me:3000'
   break;
 }
 

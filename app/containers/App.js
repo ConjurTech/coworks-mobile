@@ -5,7 +5,7 @@ import { Provider } from 'react-redux/native';
 import Navigation from './Navigation';
 import configureStore from '../store/configureStore';
 
-const store = configureStore();
+export const store = configureStore();
 
 export default class App extends Component {
   render() {
