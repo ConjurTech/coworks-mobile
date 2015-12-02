@@ -6,7 +6,7 @@ var ENV = {
 }
 
 // Choose the environment here for now
-ENV.env = "development";
+ENV.env = "production";
 // ENV.env = "development";
 
 // Enviroment specific variables

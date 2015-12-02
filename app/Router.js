@@ -3,6 +3,7 @@ import SignInPage from './containers/SignInPage';
 import LandingPage from './containers/LandingPage';
 import CompaniesPage from './containers/CompaniesPage';
 import ProjectsCompaniesPage from './containers/ProjectsCompaniesPage';
+import ExampleDrawer from './containers/ExampleDrawer';
 
 // Counter is an example.
 // TODO: Remove after learning basics.
@@ -54,8 +55,8 @@ class Router {
     let homeRoute = {
       index: 0,
       props: props,
-      component: CompaniesPage,
-      name: 'companies',
+      component: ProjectsCompaniesPage,
+      name: 'projectsCompanies',
       sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
     }
     this.navigator.immediatelyResetRouteStack([homeRoute])
@@ -75,7 +76,7 @@ const InitialRoute = {
   name: 'doesntmatterfornowchangethislater',
   index: 0,
   component: LandingPage
-  // component: CompaniesPage
+  // component: ExampleDrawer
   // component: ProjectsCompaniesPage
 }
 
