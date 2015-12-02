@@ -1,3 +1,7 @@
+# Version
+- Node v5.1
+- react-native v0.15.0
+
 # Requirements
 - Go through [RN's getting started](https://facebook.github.io/react-native/docs/getting-started.html#content) before anything else.
 - OSX
@@ -24,6 +28,18 @@ You are assumed to have worked on [React-Native](https://facebook.github.io/reac
 4. Overwrite index.android.js? do not overwrite
 5. `react-native run-android` (connect your device before running this)
 
+# Packages
+    "apsl-react-native-button": "^2.2.0",
+    "immutable": "^3.7.5",
+    "query-string": "^3.0.0",
+    "react": "^0.14.3",
+    "react-native": "^0.15.0",
+    "react-native-navigator": "^0.4.2",
+    "react-native-scrollable-tab-view": "^0.2.2-alpha",
+    "react-redux": "^3.1.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+
 ## Some Help
 
 ### Getting started Websites
@@ -39,19 +55,19 @@ You are assumed to have worked on [React-Native](https://facebook.github.io/reac
 - [noder-react-native](https://github.com/soliury/noder-react-native)
 
 
-To start development server:
-`react-native start`              # starts the node server
-`adb reverse tcp:8081 tcp:8081`   # bind the node port to the android device
-`react-native run-android`        # install the app and run it
+    To start development server:
+    `react-native start`              # starts the node server
+    `adb reverse tcp:8081 tcp:8081`   # bind the node port to the android device
+    `react-native run-android`        # install the app and run it
 
-If the port binding step does not work, kill existing processes first:
-`lsof -i tcp:8081`
-`kill -9 [PID]`
+    If the port binding step does not work, kill existing processes first:
+    `lsof -i tcp:8081`
+    `kill -9 [PID]`
 
-To run application again a local backend server (e.g. on port 3000):
-`adb reverse tcp:3000 tcp:3000`
-Make sure the server is bound to listen to all IPs, e.g:
-`rails s -b 0.0.0.0`
+    To run application again a local backend server (e.g. on port 3000):
+    `adb reverse tcp:3000 tcp:3000`
+    Make sure the server is bound to listen to all IPs, e.g:
+    `rails s -b 0.0.0.0`
 
-To see console logs:
-`adb logcat *:S ReactNative:V ReactNativeJS:V`
+    To see console logs:
+    `adb logcat *:S ReactNative:V ReactNativeJS:V`
