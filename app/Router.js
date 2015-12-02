@@ -35,6 +35,14 @@ class Router {
     this.navigator.pop();
   }
 
+  slideToLanding(props) {
+    this.push(props, {
+      component: LandingPage,
+      name: 'landing',
+      sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
+    })
+  }
+
   slideToSignIn(props) {
     this.push(props, {
       component: SignInPage,
@@ -47,6 +55,14 @@ class Router {
     this.push(props, {
       component: Counter,
       name: 'counter',
+      sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
+    })
+  }
+
+  slideToCompanies(props) {
+    this.push(props, {
+      component: ProjectsCompaniesPage,
+      name: 'companies',
       sceneConfig: Navigator.SceneConfigs.FloatFromBottomAndroid
     })
   }
