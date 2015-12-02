@@ -34,6 +34,7 @@ You are assumed to have worked on [React-Native](https://facebook.github.io/reac
     "query-string": "^3.0.0",
     "react": "^0.14.3",
     "react-native": "^0.15.0",
+    "react-native-drawer": "^1.10.0",
     "react-native-navigator": "^0.4.2",
     "react-native-scrollable-tab-view": "^0.2.2-alpha",
     "react-redux": "^3.1.0",
